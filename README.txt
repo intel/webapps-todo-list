@@ -1,6 +1,7 @@
 This application is written using HTML5/css3/jquery javascript library and is distributed under Apache2.0 license.
 
-Author: Carl Wong <carl.wong@intel.com> 
+Author: Salvatore Iovene <salvatore.iovene@intel.com>
+Owner: Carl Wong <carl.wong@intel.com>
 
 License for the app is found in the file "LICENSE" and the license for JQuery and assets components is as below:
 
