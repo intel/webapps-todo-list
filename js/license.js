@@ -21,8 +21,8 @@ function license_init(id, hpageid)
     request.open("GET", "README.txt", false);
     request.onload = function(e) {
         var text = this.responseText;
-        text = text.replace("<","&lt;");
-        text = text.replace(">","&gt;");
+        text = text.replace(/</g,"&lt;");
+        text = text.replace(/>/g,"&gt;");
         var lines = text.split("\n");
         lines[0] = "<br><br>"+lines[0];
         for(var i in lines)
