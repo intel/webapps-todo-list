@@ -1193,7 +1193,7 @@
 	height: 116px;
 	width: 157px;
 	margin-right: 33px;
-	margin-top: -100px;
+	margin-top: 0px;
 }
 
 /* Generic day, used both in week-view and day-view. */
