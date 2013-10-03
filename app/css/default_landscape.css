@@ -13,7 +13,7 @@
 }
 
 .ui-page {
-	background: #000000 url('../images/bg-gradient.png') repeat-x left top;
+	background: #000000 url(../images/bg-gradient.png) repeat-x left top;
 }
 
 /* hack for landscape mode in simulator */
@@ -174,11 +174,11 @@
 	width: 100%;
 	background-color: #D1ECFF;
 	border-radius: 0px 0px 10px 10px;
-	background-image: url('../images/box-corner-left-bottom.png'),
-                      url('../images/box-corner-right-bottom.png'),
-                      url('../images/box-corner-left-middle.png'),
-                      url('../images/box-corner-right-middle.png'),
-                      url('../images/box-corner-middle-bottom.png');
+	background-image: url(../images/box-corner-left-bottom.png),
+                      url(../images/box-corner-right-bottom.png),
+                      url(../images/box-corner-left-middle.png),
+                      url(../images/box-corner-right-middle.png),
+                      url(../images/box-corner-middle-bottom.png);
 	background-position: left bottom, right bottom, left top, right top;
 	background-repeat: no-repeat, no-repeat, repeat-y, repeat-y, repeat-x;	
 	overflow: auto;
@@ -187,9 +187,9 @@
 #week-view #weekouter .days .scrollarea .day .container .header {
 	height: 66px;
 	border-radius: 10px 10px 0px 0px;
-	background-image: url('../images/box-corner-left-top.png'),
-                      url('../images/box-corner-right-top-tab.png'),
-                      url('../images/box-corner-middle-top.png');
+	background-image: url(../images/box-corner-left-top.png),
+                      url(../images/box-corner-right-top-tab.png),
+                      url(../images/box-corner-middle-top.png);
 	background-position: left top, right top, left top;
 	background-repeat: no-repeat, no-repeat, repeat-x;
 }
@@ -259,11 +259,11 @@
 	width: 60px;
 	margin-top: 12px;
 	margin-right: 30px;
-	background: url("../images/add-item.png");
+	background: url(../images/add-item.png);
 }
 
 #week-view #weekouter .days .scrollarea .day .container .header .add:active {
-	background: url("../images/add-item-active.png");
+	background: url(../images/add-item-active.png);
 }
 
 #week-view #weekouter .days .scrollarea .day .container .items .todo-item .text.done {
@@ -365,9 +365,9 @@
 	border-radius: 3px 3px 0 0;
 	padding: 0px;
 	/* display: inline-block; */
-	background-image: url('../images/box-corner-left-top.png'),
-                      url('../images/box-corner-right-top-tab.png'),
-                      url('../images/box-corner-middle-top.png');
+	background-image: url(../images/box-corner-left-top.png),
+                      url(../images/box-corner-right-top-tab.png),
+                      url(../images/box-corner-middle-top.png);
 	background-position: left top, right top, left top;
 	background-repeat: no-repeat, no-repeat, repeat-x;
 }
@@ -385,11 +385,11 @@
 #edit-item .edit-item-form {
 	height: 443px; /* (630-66-121) */
 	width: 100%;
-	background-image: url('../images/box-corner-left-bottom.png'),
-                      url('../images/box-corner-right-bottom.png'),
-                      url('../images/box-corner-left-middle.png'),
-                      url('../images/box-corner-right-middle.png'),
-                      url('../images/box-corner-middle-bottom.png');
+	background-image: url(../images/box-corner-left-bottom.png),
+                      url(../images/box-corner-right-bottom.png),
+                      url(../images/box-corner-left-middle.png),
+                      url(../images/box-corner-right-middle.png),
+                      url(../images/box-corner-middle-bottom.png);
 	background-position: left bottom, right bottom, left top, right top;
 	background-repeat: no-repeat, no-repeat, repeat-y, repeat-y, repeat-x;
 }
@@ -504,12 +504,12 @@
 	height: 80px;
 	width: 80px;
 	right: 20px;
-	background: url("../images/close-button.png");
+	background: url(../images/close-button.png);
 	vertical-align: middle;
 }
 
 #edit-item .closeb:active {
-	background: url("../images/close-button-active.png");
+	background: url(../images/close-button-active.png);
 }
 
 /*edit-item - Close End*/
@@ -520,7 +520,7 @@
 	width: 100%;
 	background-color: #eeeeee;
 	border-radius: 0px 0px 10px 10px;
-	background-image: url('../images/box-shadow-big.png');
+	background-image: url(../images/box-shadow-big.png);
 	background-position: center top;
 	background-repeat: no-repeat;
 }
@@ -621,7 +621,7 @@
 }
 
 #morningShadeTop {
-    background: url("../images/shadow_top.png") left repeat-x;
+    background: url(../images/shadow_top.png) left repeat-x;
     position: relative;
     float: left;
     top: -2px;
@@ -632,7 +632,7 @@
 }
 
 #morningShadeBottom {
-    background: url("../images/shadow_bottom.png") left repeat-x;
+    background: url(../images/shadow_bottom.png) left repeat-x;
     position: relative;
     float: left;
     top: 139px;
@@ -643,7 +643,7 @@
 }
 
 #afternoonShadeTop {
-    background: url("../images/shadow_top.png") left repeat-x;
+    background: url(../images/shadow_top.png) left repeat-x;
     position: relative;
     float: left;
     top: -2px;
@@ -654,7 +654,7 @@
 }
 
 #afternoonShadeBottom {
-    background: url("../images/shadow_bottom.png") left repeat-x;
+    background: url(../images/shadow_bottom.png) left repeat-x;
     position: relative;
     float: left;
     top: 119px;
@@ -665,7 +665,7 @@
 }
 
 #eveningShadeTop {
-    background: url("../images/shadow_top.png") left repeat-x;
+    background: url(../images/shadow_top.png) left repeat-x;
     position: relative;
     float: left;
     top: -2px;
@@ -676,7 +676,7 @@
 }
 
 #eveningShadeBottom {
-    background: url("../images/shadow_bottom.png") left repeat-x;
+    background: url(../images/shadow_bottom.png) left repeat-x;
     position: relative;
     float: left;
     top: 119px;
@@ -690,9 +690,9 @@
 	height: 66px;
 	width: 100%;
 	border-radius: 10px 10px 0px 0px;
-	background-image: url('../images/box-corner-day-left-top.png'),
-                      url('../images/box-corner-right-top-tab.png'),
-                      url('../images/box-corner-middle-top.png');
+	background-image: url(../images/box-corner-day-left-top.png),
+                      url(../images/box-corner-right-top-tab.png),
+                      url(../images/box-corner-middle-top.png);
 	background-position: left top, right top, left top;
 	background-repeat: no-repeat, no-repeat, repeat-x;
 }
@@ -705,11 +705,11 @@
 	border-radius: 10px 10px 0px 0px;
 	background-color: #D1ECFF;
 	
-	background-image: url('../images/box-corner-day-left-bottom.png'),
-                      url('../images/box-corner-right-bottom.png'),
-                      url('../images/box-corner-day-left-middle-dark.png'),
-                      url('../images/box-corner-right-middle.png'),
-                      url('../images/box-corner-middle-bottom.png');                      
+	background-image: url(../images/box-corner-day-left-bottom.png),
+                      url(../images/box-corner-right-bottom.png),
+                      url(../images/box-corner-day-left-middle-dark.png),
+                      url(../images/box-corner-right-middle.png),
+                      url(../images/box-corner-middle-bottom.png);                      
                       
 	background-position: left bottom, right bottom, left top, right top, left bottom;
 	background-repeat: no-repeat, no-repeat, repeat-y, repeat-y, repeat-x;
@@ -919,11 +919,11 @@
   	width: 60px;
 	margin-top: 12px;
 	margin-right: 30px;
-	background: url("../images/add-item.png");
+	background: url(../images/add-item.png);
 }
 
 #day-view .day .container .header .add:active {
-  	background: url("../images/add-item-active.png");
+  	background: url(../images/add-item-active.png);
 }
 
 #day-view .day .container .hovered {
@@ -973,9 +973,9 @@
 #settings-view .container .header {
 	height: 66px;
 	border-radius: 10px 10px 0px 0px;
-	background-image: url('../images/box-corner-left-top.png'),
-                      url('../images/box-corner-right-top.png'),
-                      url('../images/box-corner-middle-top.png');
+	background-image: url(../images/box-corner-left-top.png),
+                      url(../images/box-corner-right-top.png),
+                      url(../images/box-corner-middle-top.png);
 	background-position: left top, right top, left top;
 	background-repeat: no-repeat, no-repeat, repeat-x;
 }
@@ -994,11 +994,11 @@
 	height: 474px;
 	width: 100%;
 	border-radius: 0px 0px 10px 10px;
-	background-image: url('../images/box-corner-left-bottom.png'),
-                      url('../images/box-corner-right-bottom.png'),
-                      url('../images/box-corner-left-middle.png'),
-                      url('../images/box-corner-right-middle.png'),
-                      url('../images/box-corner-middle-bottom.png');
+	background-image: url(../images/box-corner-left-bottom.png),
+                      url(../images/box-corner-right-bottom.png),
+                      url(../images/box-corner-left-middle.png),
+                      url(../images/box-corner-right-middle.png),
+                      url(../images/box-corner-middle-bottom.png);
 	background-position: left bottom, right bottom, left top, right top, left bottom;
 	background-repeat: no-repeat, no-repeat, repeat-y, repeat-y, repeat-x;
 }
@@ -1102,17 +1102,17 @@
 /* Fonts */
 @font-face {
 	font-family: 'Lato Light';
-	src: url('fonts/Lato-Lig.ttf');
+	src: url(../fonts/Lato-Lig.ttf);
 }
 
 @font-face {
 	font-family: 'Lato Regular';
-	src: url('fonts/Lato-Reg.ttf');
+	src: url(../fonts/Lato-Reg.ttf);
 }
 
 @font-face {
 	font-family: 'Lato Black';
-	src: url('fonts/Lato-Bla.ttf');
+	src: url(../fonts/Lato-Bla.ttf);
 }
 /* Variables */
 /* Mixins */
@@ -1188,7 +1188,7 @@
 
 .ui-header .logo {
 	float: right;
-	background: url('../images/todo-logo.png') no-repeat top left;
+	background: url(../images/todo-logo.png) no-repeat top left;
 	display: block;
 	height: 116px;
 	width: 157px;
@@ -1206,7 +1206,7 @@
 	left: 0px;
 	width: 100%;
 	height: 100%;
-	background: url('../images/splash_landscape.png') no-repeat top left;
+	background: url(../images/splash_landscape.png) no-repeat top left;
 }
 
 .hidden {
@@ -1232,9 +1232,9 @@
 	height: 66px;
 	border-radius: 10px 10px 0 0;
 	padding: 0px;
-	background-image: url('../images/box-corner-left-top.png'),
-                      url('../images/box-corner-right-top-tab.png'),
-                      url('../images/box-corner-middle-top.png');
+	background-image: url(../images/box-corner-left-top.png),
+                      url(../images/box-corner-right-top-tab.png),
+                      url(../images/box-corner-middle-top.png);
 	background-position: left top, right top, left top;
 	background-repeat: no-repeat, no-repeat, repeat-x;
 }
@@ -1252,11 +1252,11 @@
 #move-to-date .movetodate_form {
 	height: 453px; /* (640-66-121) */
 	width: 100%;
-	background-image: url('../images/box-corner-left-bottom.png'),
-                      url('../images/box-corner-right-bottom.png'),
-                      url('../images/box-corner-left-middle.png'),
-                      url('../images/box-corner-right-middle.png'),
-                      url('../images/box-corner-middle-bottom.png');
+	background-image: url(../images/box-corner-left-bottom.png),
+                      url(../images/box-corner-right-bottom.png),
+                      url(../images/box-corner-left-middle.png),
+                      url(../images/box-corner-right-middle.png),
+                      url(../images/box-corner-middle-bottom.png);
 	background-position: left bottom, right bottom, left top, right top;
 	background-repeat: no-repeat, no-repeat, repeat-y, repeat-y, repeat-x;
 }
@@ -1320,7 +1320,7 @@
 	width: 100%;
 	background-color: #eeeeee;
 	border-radius: 0px 0px 10px 10px;
-	background-image: url('../images/box-shadow-big.png');
+	background-image: url(../images/box-shadow-big.png);
 	background-position: center top;
 	background-repeat: no-repeat;
 }

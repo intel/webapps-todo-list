@@ -10,15 +10,15 @@
 /* Fonts */
 @font-face {
   font-family: 'Lato Light';
-  src: url('fonts/Lato-Lig.ttf');
+  src: url(../fonts/Lato-Lig.ttf);
 }
 @font-face {
   font-family: 'Lato Regular';
-  src: url('fonts/Lato-Reg.ttf');
+  src: url(../fonts/Lato-Reg.ttf);
 }
 @font-face {
   font-family: 'Lato Black';
-  src: url('fonts/Lato-Bla.ttf');
+  src: url(../fonts/Lato-Bla.ttf);
 }
 /* Variables */
 /* Mixins */

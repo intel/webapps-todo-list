@@ -611,7 +611,7 @@
 	margin-bottom: 14px;			
 }
 .ui-singleimagedisplay-nocontent {
-    background-image: url('images/web-ui-fw_noContent.png');
+    background-image: url(images/web-ui-fw_noContent.png);
     background-size: cover;
 }
 /* Need to add !important below, because these classes are added before jqm enhancement */
@@ -810,7 +810,7 @@
 .ui-volumecontrol .ui-volumecontrol-icon {
   display: table;
   margin: auto;
-  background-image: url('images/web-ui-fw_volume_icon.png');
+  background-image: url(images/web-ui-fw_volume_icon.png);
   background-repeat: no-repeat;
   background-position: center center;
   width: 54px;
