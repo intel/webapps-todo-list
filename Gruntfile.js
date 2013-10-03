@@ -42,7 +42,6 @@ module.exports = function (grunt) {
           'build/app/js/jquery-ui-1.8.17.custom.min.js': ['app/js/jquery-ui-1.8.17.custom.min.js'],
           'build/app/js/license.js': ['app/js/license.js'],
           'build/app/js/movetodate.js': ['app/js/movetodate.js'],
-          'build/app/js/scaleBody.js': ['app/js/scaleBody.js'],
           'build/app/js/settings-backend.js': ['app/js/settings-backend.js'],
           'build/app/js/todo-backend.js': ['app/js/todo-backend.js'],
           'build/app/js/todo.js': ['app/js/todo.js'],
