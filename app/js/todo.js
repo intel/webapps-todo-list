@@ -20,7 +20,7 @@ var monthJan = 1;
  */
 String.prototype.format = function() {
     var args = arguments;
-    return this.replace(/{(\d+)}/g, function(match, number) { 
+    return this.replace(/{(\d+)}/g, function(match, number) {
         return typeof args[number] != 'undefined'
             ? args[number]
             : match;
@@ -64,7 +64,7 @@ function _(string, args) {
 // Main class.
 function Todo() {
     // Variables.
-    
+
     this.__backend = new TodoBackendLocalStorage();
     this.__settingsbackend = new SettingsBackendLocalStorage();
     this.__wkViewScroll = null;
@@ -73,7 +73,7 @@ function Todo() {
     this.buttonClickAudio.src = "./audio/Button_GeneralClick.ogg";
     this.addClickAudio = new Audio();
     this.addClickAudio.src = "./audio/Button_AddItem.ogg";
-    
+
     this.__ui = {
         header: $('*[data-role=header]'),
         week_view: $('#week-view'),
@@ -164,7 +164,7 @@ function Todo() {
         $img.attr('src', src);
     };
 
-    
+
     this.__init_settings_ui_default_view = function(default_view_id) {
         var $settings_ui = $('#settings-view');
         $settings_ui.find('form fieldset.settings_default_view a.selected .icon img').each(function() {
@@ -178,11 +178,11 @@ function Todo() {
         var $img = $selected.find('.icon img');
         var src = $img.attr('src').replace('-unsel', '-sel');
         $img.attr('src', src);
-        this.__settingsbackend.setDefaultView(default_view_id);        
+        this.__settingsbackend.setDefaultView(default_view_id);
     };
 
     this.__init_settings_ui_sort_item = function(sort_item_id) {
-        
+
         var $settings_ui = $('#settings-view');
         $settings_ui.find('form fieldset.settings_sort_item_by a.selected .icon img').each(function() {
             var src = $(this).attr('src').replace('-sel', '-unsel');
@@ -197,7 +197,7 @@ function Todo() {
         $img.attr('src', src);
         this.__settingsbackend.setSortBy(sort_item_id);
     };
-    
+
     this.__init_settings_ui_unselect_visible_day = function(day_id) {
         var $settings_ui = $('#settings-view');
         var $selected = $settings_ui.find('form fieldset.settings_visible_days a#' + day_id);
@@ -205,7 +205,7 @@ function Todo() {
         var $img = $selected.find('.icon img');
         var src = $img.attr('src').replace('-sel', '-unsel');
         $img.attr('src', src);
-        this.__settingsbackend.saveDaySettings(day_id, SettingsItem.dayItem.UNCHECKED);        
+        this.__settingsbackend.saveDaySettings(day_id, SettingsItem.dayItem.UNCHECKED);
     };
 
     this.__init_settings_ui_select_visible_day = function(day_id) {
@@ -217,7 +217,7 @@ function Todo() {
         $img.attr('src', src);
         this.__settingsbackend.saveDaySettings(day_id, SettingsItem.dayItem.CHECKED);
     };
-    
+
     this.__init_settings_ui_days_icons = function(day_id, value) {
         var $settings_ui = $('#settings-view');
         var $selected = $settings_ui.find('form fieldset.settings_visible_days a#' + day_id);
@@ -251,7 +251,7 @@ function Todo() {
             $img.attr('src', src);
         }
     };
-    
+
     this.__init_settings_ui_sort_icons = function(sort_item_id) {
         var $settings_ui = $('#settings-view');
         $settings_ui.find('form fieldset.settings_sort_item_by a.selected .icon img').each(function() {
@@ -273,7 +273,7 @@ function Todo() {
         var self = this;
         var $settings_ui = this.__ui.settings_view;
         var $settings_form = $settings_ui.find('form');
-        
+
         $settings_ui.find('a.close').bind('vclick', function() {
             self.buttonClickAudio.play();
             if(self.__settingsbackend.getDefaultView() == SettingsItem.DefaultView.WEEKVIEW) {
@@ -285,17 +285,17 @@ function Todo() {
                 self.__refresh_day_view();
             }
         });
-        
+
         $settings_ui.find('label[for="settings_visible_days"]').text(_("visible_days"));
         $settings_ui.find('label[for="settings_default_view"]').text(_("default_view"));
         $settings_ui.find('label[for="settings_sort_item_by"]').text(_("sort_item_by"));
-        
+
         $settings_ui.find('.text.settings_header').text(_("settings"));
         $settings_ui.find('.text.setting_week').text(_("week"));
         $settings_ui.find('.text.setting_day').text(_("day"));
         $settings_ui.find('.text.setting_time').text(_("time"));
         $settings_ui.find('.text.setting_priority').text(_("priority"));
-        
+
         $settings_ui.find('.text.mon').text(_("Mon"));
         $settings_ui.find('.text.tues').text(_("Tue"));
         $settings_ui.find('.text.weds').text(_("Wed"));
@@ -303,7 +303,7 @@ function Todo() {
         $settings_ui.find('.text.fri').text(_("Fri"));
         $settings_ui.find('.text.sat').text(_("Sat"));
         $settings_ui.find('.text.sun').text(_("Sun"));
-        
+
         $settings_ui.find('fieldset.settings_default_view a').bind('vclick', function() {
             self.buttonClickAudio.play();
             if ($(this).hasClass('selected'))
@@ -328,7 +328,7 @@ function Todo() {
             }
         });
         var days = self.__settingsbackend.getSettingsDays();
-        
+
         $.each(days, function() {
             var day = this;
             self.__init_settings_ui_days_icons(day.id, day.value);
@@ -339,7 +339,7 @@ function Todo() {
 
         $settings_form.submit(function() { return false; });
     };
-    
+
     this.__init_movetodate_ui = function(todo, date) {
         var self = this;
         var olddate = new Date();
@@ -351,7 +351,7 @@ function Todo() {
 
         var $movetodate_ui = this.__ui.move_todate_view;
         var $movetodate_form = $movetodate_ui.find('form');
-        
+
         $movetodate_ui.find('label[for="movetodate_header"]').text(_("move_to_date"));
         $movetodate_ui.find('.save .text').text(_("save"));
         $movetodate_ui.find('label[for="movetodate_day"]').text(_("DAY"));
@@ -365,14 +365,14 @@ function Todo() {
             self.buttonClickAudio.play();
             hideMovetoDatePopup();
         });
-        
+
         $movetodate_ui.find('fieldset.save a').unbind('vclick');
         $movetodate_ui.find('fieldset.save a').bind('vclick', function() {
             self.buttonClickAudio.play();
             var daylabel = $movetodate_ui.find('label[for="movetodate_dayvalue"]');
             var monthlabel = $movetodate_ui.find('label[for="movetodate_monthvalue"]');
             var yearlabel = $movetodate_ui.find('label[for="movetodate_yearvalue"]');
-            
+
             var newdate = new Date();
             newdate.setYear(parseInt(yearlabel.text()));
             newdate.setMonth(parseInt(monthlabel.text() - 1));
@@ -401,7 +401,7 @@ function Todo() {
             var yearlabel = $movetodate_ui.find('label[for="movetodate_yearvalue"]');
             if( (i-1) == daysInMonth(parseInt(monthlabel.text()), parseInt(yearlabel.text()))) {
                 i = 1;
-                daylabel.text(i.toString());                
+                daylabel.text(i.toString());
                 var month = parseInt(monthlabel.text());
                 month++;
                 if(month == monthDec) {
@@ -465,7 +465,7 @@ function Todo() {
                 return;
             }
             $movetodate_ui.find('label[for="movetodate_monthvalue"]').text(i.toString());
-            
+
         });
         $movetodate_ui.find('a.month_icon_minus').unbind('vclick');
         $movetodate_ui.find('a.month_icon_minus').bind('vclick', function() {
@@ -493,13 +493,13 @@ function Todo() {
         $movetodate_ui.find('a.year_icon_add').unbind('vclick');
         $movetodate_ui.find('a.year_icon_add').bind('vclick', function() {
             self.buttonClickAudio.play();
-            var yearlabel = $movetodate_ui.find('label[for="movetodate_yearvalue"]');            
+            var yearlabel = $movetodate_ui.find('label[for="movetodate_yearvalue"]');
             var i = parseInt(yearlabel.text());
             i++;
             var monthlabel = $movetodate_ui.find('label[for="movetodate_monthvalue"]');
             var daylabel = $movetodate_ui.find('label[for="movetodate_dayvalue"]');
             if(parseInt(monthlabel.text()) == 2 &&
-                    parseInt(daylabel.text()) > daysInMonth(parseInt(monthlabel.text()) , i)) 
+                    parseInt(daylabel.text()) > daysInMonth(parseInt(monthlabel.text()) , i))
             {
                 var nextyearfebdays = daysInMonth(parseInt(monthlabel.text()) , i);
                 daylabel.text(nextyearfebdays.toString());
@@ -515,7 +515,7 @@ function Todo() {
             var monthlabel = $movetodate_ui.find('label[for="movetodate_monthvalue"]');
             var daylabel = $movetodate_ui.find('label[for="movetodate_dayvalue"]');
             if(parseInt(monthlabel.text()) == 2 &&
-                    parseInt(daylabel.text()) > daysInMonth(parseInt(monthlabel.text()) , i)) 
+                    parseInt(daylabel.text()) > daysInMonth(parseInt(monthlabel.text()) , i))
             {
                 var nextyearfebdays = daysInMonth(parseInt(monthlabel.text()) , i);
                 daylabel.text(nextyearfebdays.toString());
@@ -601,7 +601,7 @@ function Todo() {
 
         function MouseUp() {
             var endX = event.screenX;
-            // 
+            //
             if ( (endX-startX) < -distance) {
                 $self.__current_start_day = $self.__current_start_day.clone().add(7).days();
                 $self.__refresh_week_view();
@@ -628,7 +628,7 @@ function Todo() {
             else {
                 endX = event.changedTouches.item(0).screenX;
             }
-            // 
+            //
             if ( (endX-startX) < -distance) {
                 $self.__current_start_day = $self.__current_start_day.clone().add(7).days();
                 $self.__refresh_week_view();
@@ -648,7 +648,7 @@ function Todo() {
         $context_menu_ui.find('.text.edit').text(_("edit"));
         $context_menu_ui.find('.text.delete').text(_("delete"));
     };
-    
+
     this.__init_edit_ui = function() {
         var self = this;
 
@@ -661,7 +661,7 @@ function Todo() {
             'afternoon': _('afternoon'),
             'night': _('night')
         };
-        
+
         $.each(periods, function(key, value) {
             $select.append(
                 $('<option>', {value: key}).text(value));
@@ -678,7 +678,7 @@ function Todo() {
 
         $edit_ui.find('.save .text').text(_("save"));
         $edit_ui.find('.delete .text').text(_("delete"));
-        
+
         $edit_ui.find('.closeb').bind('vclick', function() {
             self.buttonClickAudio.play();
             $edit_ui.popupwindow('close');
@@ -722,7 +722,7 @@ function Todo() {
         var right = false;
         var left_offset = 178;
         var top_offset = 105;
-        
+
         var remove = function() {
             var date_str = $popup.data('date');
             var date = Date.parse(date_str);
@@ -733,7 +733,7 @@ function Todo() {
             self.__refresh_week_view();
             self.__refresh_day_view();
         };
-        
+
         var save = function(is_new) {
             var $input = $popup.find('form input[name="text"]');
 
@@ -746,7 +746,7 @@ function Todo() {
                     color = $popup.find('fieldset.color a.selected').attr('id'),
                     period = parseInt(
                         $popup.find('fieldset.period a.selected').attr('id'));
-                 
+
                 var todo;
 
                 if (is_new) {
@@ -833,7 +833,7 @@ function Todo() {
                 return false;
             });
         }
-        
+
         var date = $day.attr('data-date');
         $popup.data('date', date);
         Helper.show("edit-item", true);
@@ -861,7 +861,7 @@ function Todo() {
         else if(todo.priority == 4)
             $img.src = "images/priority_03.png";
 
-        
+
         $item.append($img);
         if (todo.text.length > 17) {
             todo.text = todo.text.substring(0, 16) + '...';
@@ -880,7 +880,7 @@ function Todo() {
             //Trigged when mouse move takes place from the item clicked
             _isMouseLeave = true;
              _isLongPress = true;
-               
+
         });
 
 	    $item.touchstart(function(){
@@ -892,7 +892,7 @@ function Todo() {
 	                //Mouse not moved from the item clicked
 	                var todo = $item.data('todo-item');
 	                var date = $item.data('date');
-	          
+
 	                // currently menu is shown in the center
 	                var shadow = document.getElementById('shadow');
 	                var menu = document.getElementById('context-menu');
@@ -902,13 +902,13 @@ function Todo() {
 	                else {
 	                    menu.setAttribute("class", "portrait");
 	                }
-	          
+
 	                var textdone = $(menu).find('.text.done');
 	                if(todo.isDone())
 	                    textdone.text(_("undone"));
 	                else
 	                    textdone.text(_("done"));
-	                
+
 	                $(document.getElementById('shadow')).bind('click', function() {
 	                    hideLayer();
 	                });
@@ -924,10 +924,10 @@ function Todo() {
 	                        todo.setDone();
 	                        $item.find('.text').addClass('done');
 	                    }
-	                    self.__backend.save(todo, date);                    
+	                    self.__backend.save(todo, date);
 	                    hideLayer();
 	                });
-	                // When menu item changeday clicked                    
+	                // When menu item changeday clicked
 	                $(document.getElementById('menuchangeday')).bind('click', function() {
 	                    self.buttonClickAudio.play();
 	                    hideLayer();
@@ -940,7 +940,7 @@ function Todo() {
 	                    shadow = null;
 	                    menu = null;
 	                });
-	                // When menu item edit clicked                    
+	                // When menu item edit clicked
 	                $(document.getElementById('menuedit')).unbind('click');
 	                $(document.getElementById('menuedit')).bind('click', function() {
 	                    self.buttonClickAudio.play();
@@ -948,8 +948,8 @@ function Todo() {
 	                    Helper.show("delete_button", true);
 	                    self.__create_edit_ui($(parent), todo);
 	                });
-	                // When menu item delete clicked                    
-	                $(document.getElementById('menudelete')).unbind('click');                
+	                // When menu item delete clicked
+	                $(document.getElementById('menudelete')).unbind('click');
 	                $(document.getElementById('menudelete')).bind('click', function() {
 	                    self.buttonClickAudio.play();
 	                    hideLayer();
@@ -963,9 +963,9 @@ function Todo() {
 	                menu = null;
 	                }
 	            } , 1000);
-	        return true; 
+	        return true;
 	    });
-	    
+
 	    $item.touchend(function(){
 	        if(!_isLongPress) {
 	            Helper.show("delete_button", true);
@@ -975,7 +975,7 @@ function Todo() {
 	        _isLongPress = false;
 	        return true;
 	    });
-    
+
         if (editable === undefined || editable) {
             $item.bind('dblclick', function(e) {
                 e.preventDefault();
@@ -995,23 +995,22 @@ function Todo() {
 
 
     this.__resize_days = function() {
-        
         var $content = todo.__ui.week_view.find('.days .scrollarea');
         var count = $content.children().length;
-        
+
         if (Helper.isLandscape()) {
             document.getElementById('stylesheet').href='css/default_landscape.css';
-            
+
             for(var idx = 0 ; idx < count; idx++) {
                 var day = document.getElementById($content.children()[idx].id);
                 day.style.marginTop = "28px";
                 day.style.marginLeft = "21px";
-                
+
                 if(idx == 0 || idx == 1 || idx == 2) {
                     var day = document.getElementById($content.children()[idx].id);
                     day.style.marginTop = "0px";
                 }
-                
+
                 if(idx == 0 || idx == 3 || idx == 6) {
                     var day = document.getElementById($content.children()[idx].id);
                     day.style.marginLeft = "0px";
@@ -1021,7 +1020,7 @@ function Todo() {
         }
         else {
             document.getElementById('stylesheet').href='css/default_portrait.css';
-            
+
             for(var i = 0; i < count; i++) {
                 var day = document.getElementById($content.children()[i].id);
                 day.style.marginTop = "15px";
@@ -1094,7 +1093,7 @@ function Todo() {
                     <a href="#"> <img src="images/view-more-button.png" /> </a>\
                 </div>\
             </div>';
-    
+
         //Get the settings days from backend
         var settingdays = self.__settingsbackend.getSettingsDays();
         $.each(settingdays, function() {
@@ -1116,7 +1115,7 @@ function Todo() {
             // Set the day of the month.
             $dom.text(date.getDate());
 
-            // Set the day of the week. 
+            // Set the day of the week.
             if (date.clearTime().equals(Date.today().clearTime())) {
                 $dow.text(_("Today"));
             } else {
@@ -1133,13 +1132,13 @@ function Todo() {
             $view_more.find('a').bind('vclick', function() {
                 var itemsArray = self.__backend.get(date);
                 var totalheight = itemsArray.length * 80 + 60;
-                
+
                 self.buttonClickAudio.play();
                 var $week_view = self.__ui.week_view;
 
                 // GET class property value
                 var container_height = $week_view.find('#day-' + parseInt(currentDay.id) + ' .container').height();
-                
+
                 // SET class property value
                 if(container_height === 400) {
                     $week_view.find('#day-' + parseInt(currentDay.id) + ' .container').height(totalheight + 'px');
@@ -1155,7 +1154,7 @@ function Todo() {
                 }
                 return false;
             });
-            
+
 
 
             if(self.__settingsbackend.getSortBy() == SettingsItem.SortItemBy.PRIORITY) {
@@ -1165,17 +1164,17 @@ function Todo() {
                     $items.append(self.__create_todo_ui(todoarray[i], date.toString('yyyy-MM-dd')));
                 }
             }
-            else { 
+            else {
                 //Sorting based on priority
                 var todoarray = Helper.sortByTime(self.__backend.get(date));
                 for(var i = 0; i < todoarray.length ; i++) {
                     $items.append(self.__create_todo_ui(todoarray[i], date.toString('yyyy-MM-dd')));
                 }
             }
-            
+
             //Hiding unchecked days from weekview
             var uncheckeddays = self.__settingsbackend.getUncheckedSettingsDays();
-            var found = false; 
+            var found = false;
             $.each(uncheckeddays, function(index, item) {
                 var date1 = d.clone().add(parseInt(currentDay.id)).days();
                 var date2 = d.clone().add(parseInt(item.id) - (Date.today().getDay() - 1)).days();
@@ -1185,7 +1184,7 @@ function Todo() {
                 }
             });
             if(!found)
-                $day.appendTo($content);  
+                $day.appendTo($content);
 
             // if todo items exceeds 4 then show view-more icon
             if(todoarray.length > 4) {
@@ -1220,7 +1219,7 @@ function Todo() {
 
         var $day_view = self.__ui.day_view;
         var $dow = $day_view.find('.header .day-of-week');
-                
+
         /* Set the day of the week. */
         if (d.clearTime().equals(Date.today().clearTime())) {
             $dow.text(_("Today"));
@@ -1228,17 +1227,17 @@ function Todo() {
             $dow.text(_(d.getDayName()));
         }
         $day_view.find('.day .header .day-of-month').text(d.getDate());
-        
+
         var $add = $day_view.find('.day .header .add');
-        
+
         $day_view.find('.day').attr('data-date', d.toString('yyyy-MM-dd'));
-        
+
         $add.bind('vclick', function() {
             self.addClickAudio.play();
             self.__create_edit_ui($(this), undefined);
             return false;
         });
-        
+
         $day_view.find('.day .items').children().remove();
         var todoarray = Helper.sortByPriorty(self.__backend.get(d));
         var morningCount = 0;
@@ -1263,7 +1262,7 @@ function Todo() {
             //Sorting based on time
             $.each(self.__backend.get(d), function() {
                 var todo = this;
-    
+
                 if (todo.period == TodoItem.PeriodEnum.MORNING) {
                 	morningCount++;
                     $day_view.find('.day .morning .items').append(self.__create_todo_ui(todo, d.toString('yyyy-MM-dd'), false, false));
@@ -1288,7 +1287,7 @@ function Todo() {
             shadetop.style.display = 'none';
             shadebottom.style.display = 'none';
         }
-        	
+
         if(afternoonCount > 4){
             var shadetop = document.getElementById('afternoonShadeTop');
             var shadebottom = document.getElementById('afternoonShadeBottom');
@@ -1317,11 +1316,11 @@ function Todo() {
     };
 
     this.init = function() {
-        
+
         license_init("license", "settings-view");
         Helper.show( "loader_popup", true );
         var t = setTimeout("Helper.show( \"loader_popup\", false )", 1000);
-        
+
         var self = this;
 
         document.title = _("Todo List");
@@ -1340,7 +1339,7 @@ function Todo() {
         self.__ui.week_view_button.click(function() {
             self.buttonClickAudio.play();
             self.__refresh_week_view();
-            Helper.show("week-view", true);            
+            Helper.show("week-view", true);
         });
         self.__ui.day_view_button_2.click(function() {
             self.buttonClickAudio.play();
@@ -1352,15 +1351,15 @@ function Todo() {
             self.__refresh_week_view();
             Helper.show("week-view", true);
         });
-        
+
         self.__ui.day_view_settings_button.click(function() {
             self.buttonClickAudio.play();
         });
-        
+
         self.__ui.week_view_settings_button.click(function() {
             self.buttonClickAudio.play();
         });
-        
+
         self.__init_edit_ui();
         self.__init_context_menu_ui();
         self.__init_header();
@@ -1378,41 +1377,25 @@ function Todo() {
             self.__refresh_week_view();
             self.__ui.day_view_button.click();
         }
-        
+
     };
 };
 
 
 $(function() {
     todo = new Todo();
-   
+
     this.__wkViewScroll = new iScroll('weekouter', {checkDOMChanges: true});
     var morningScroller = new iScroll('items-morning-wrapper', {checkDOMChanges: true});
     var afternoonScroller = new iScroll('items-afternoon-wrapper', {checkDOMChanges: true});
     var eveningScroller = new iScroll('items-evening-wrapper', {checkDOMChanges: true});
-    
+
     todo.init();
 
     $(document).bind('pagecreate create', todo.__resize_days());
-    if('onorientationchange' in window)
-    {
-//      Hack to lock app in portrait mode on the device
-//        window.onorientationchange = todo.__resize_days;
-        Helper.isLandscape = function() {return false;};
+
+    window.onresize = function() {
+        todo.__resize_days();
     }
-    else
-    {
-        window.onresize = function() {
-            if($(window).height() > $(window).width())
-            {
-                window.orientation = 0;
-            }
-            else
-            {
-                window.orientation = 90;
-            }
-            todo.__resize_days();
-        }
-        window.onresize();
-    }
+    window.onresize();
 });

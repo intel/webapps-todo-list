@@ -8,11 +8,11 @@
  */
 
 var Helper = {
-    
+
     getScreenSize: function() {
         var height = window.innerHeight;
         var width = window.innerWidth;
-            
+
         return {
             width: width,
             height: height
@@ -20,7 +20,7 @@ var Helper = {
     },
 
     getViewSize: function() {
-        if(this.isLandscape()) {
+        if (this.isLandscape()) {
             return {
                 width: 1280,
                 height: 720
@@ -33,33 +33,34 @@ var Helper = {
             };
         }
     },
-    
+
     isLandscape: function() {
-        return (window.orientation == 90)||(window.orientation == -90);
+        var height = document.documentElement.clientHeight;
+        var width = document.documentElement.clientWidth;
+        return width > height;
     },
 
     show: function( id, visible ) {
-        
         var element = document.getElementById( id );
         if ( element == null ) {
             return;
         }
-        
+
         var className = element.className;
         if ( className == null )
             className = "";
-             
+
         if ( visible ) {
             className = className.replace( / ?hidden/, "" );
         } else {
             if ( className.indexOf( "hidden") == -1 ) {
                 if ( className.length > 0 )
                     className += " ";
-                
+
                 className += "hidden";
-            }                    
+            }
         }
-        element.className = className;          
+        element.className = className;
     },
 
     sortByPriorty: function (todos) {
