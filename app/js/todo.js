@@ -993,45 +993,6 @@ function Todo() {
         $welcome.text(_("welcome_back"));
     };
 
-
-    this.__resize_days = function() {
-        var $content = todo.__ui.week_view.find('.days .scrollarea');
-        var count = $content.children().length;
-
-        if (Helper.isLandscape()) {
-            document.getElementById('stylesheet').href='css/default_landscape.css';
-
-            for(var idx = 0 ; idx < count; idx++) {
-                var day = document.getElementById($content.children()[idx].id);
-                day.style.marginTop = "28px";
-                day.style.marginLeft = "21px";
-
-                if(idx == 0 || idx == 1 || idx == 2) {
-                    var day = document.getElementById($content.children()[idx].id);
-                    day.style.marginTop = "0px";
-                }
-
-                if(idx == 0 || idx == 3 || idx == 6) {
-                    var day = document.getElementById($content.children()[idx].id);
-                    day.style.marginLeft = "0px";
-                    day.style.clear = "left";
-                }
-            }
-        }
-        else {
-            document.getElementById('stylesheet').href='css/default_portrait.css';
-
-            for(var i = 0; i < count; i++) {
-                var day = document.getElementById($content.children()[i].id);
-                day.style.marginTop = "15px";
-                day.style.marginLeft = "20px";
-                day.style.clear = "none";
-            }
-            var day = document.getElementById($content.children()[0].id);
-            day.style.marginTop = "0px";
-        }
-    };
-
     this.__init_day_view = function() {
         var $day_view = this.__ui.day_view;
 
@@ -1198,9 +1159,6 @@ function Todo() {
             self.__refresh_day_view();
             return false;
         });
-
-        /* Finally resize the days. */
-        self.__resize_days();
     }; // end of __refresh_week_view
 
     this.__refresh_day_view = function() {
@@ -1310,9 +1268,6 @@ function Todo() {
             shadetop.style.display = 'none';
             shadebottom.style.display = 'none';
         }
-
-        /* Finally resize the days. */
-        self.__resize_days();
     };
 
     this.init = function() {
@@ -1381,7 +1336,6 @@ function Todo() {
     };
 };
 
-
 $(function() {
     todo = new Todo();
 
@@ -1391,11 +1345,4 @@ $(function() {
     var eveningScroller = new iScroll('items-evening-wrapper', {checkDOMChanges: true});
 
     todo.init();
-
-    $(document).bind('pagecreate create', todo.__resize_days());
-
-    window.onresize = function() {
-        todo.__resize_days();
-    }
-    window.onresize();
 });

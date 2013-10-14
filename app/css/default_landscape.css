@@ -20,7 +20,7 @@
 @media (orientation: landscape) {
   body {
     margin: 0px;
-    overflow-y: hidden; 
+    overflow-y: hidden;
     -webkit-user-select: none;
     background-color: #222;
     box-shadow: 5px 5px 20px black;
@@ -68,7 +68,7 @@
 @media (orientation: portrait) {
   body {
     margin: 0px;
-    overflow: hidden; 
+    overflow: hidden;
     -webkit-user-select: none;
     background-color: #222;
     top: 0%;
@@ -132,17 +132,17 @@
     height: 550px;
     overflow: auto;
 }
-    
+
 #week-view #weekouter .days {
-	
-	z-index: 1;	
+
+	z-index: 1;
 	position:absolute;
     width:100%;
     margin-left: 30px;
 }
 
 #week-view #weekouter .days .scrollarea {
-	z-index: 1;	
+	z-index: 1;
 	width:100%;
 	position: relative;
 }
@@ -157,9 +157,20 @@
 	border-radius: 10px;
 }
 
+/* first three days (in top row) have no top margin */
+.day:nth-child(1), .day:nth-child(2), .day:nth-child(3) {
+  margin-top: 0 !important;
+}
+
+/* left-most days (0, 3, 6) have no left margin and clear:left */
+.day:nth-child(1), .day:nth-child(4), .day:nth-child(7) {
+  margin-left: 0 !important;
+  clear: left !important;
+}
+
 #week-view #weekouter .days .scrollarea .day .container {
-  	height: 400px;
-  	overflow: hidden;
+	height: 400px;
+	overflow: hidden;
 	background-color: #D1ECFF;
 	border-radius: 10px;
 }
@@ -180,7 +191,7 @@
                       url(../images/box-corner-right-middle.png),
                       url(../images/box-corner-middle-bottom.png);
 	background-position: left bottom, right bottom, left top, right top;
-	background-repeat: no-repeat, no-repeat, repeat-y, repeat-y, repeat-x;	
+	background-repeat: no-repeat, no-repeat, repeat-y, repeat-y, repeat-x;
 	overflow: auto;
 }
 
@@ -196,7 +207,7 @@
 
 #week-view #weekouter .days .scrollarea .day .container .items .todo-item {
 	position: relative;
-	float: left;	
+	float: left;
 	height: 65px;
 	width: 365px;
 	margin-top: 15px;
@@ -305,7 +316,7 @@
 
 #week-view #weekouter .days .scrollarea .day .container .items .todo-item .text.grey {
 	color: #8C8C8C;
-} 
+}
 
 #week-view #weekouter .days .scrollarea .day .container .items .todo-item.prio-1,
 #week-view #weekouter .days .scrollarea .day .container .items .todo-item.prio-2,
@@ -318,8 +329,8 @@
   	border: 2px dashed #888;
 }
 
-/* #day-view .day-wrap .day .container .dayview-content > .morning .header .a, 
-#day-view .day-wrap .day .container .dayview-content > .afternoon .header .a, 
+/* #day-view .day-wrap .day .container .dayview-content > .morning .header .a,
+#day-view .day-wrap .day .container .dayview-content > .afternoon .header .a,
 #day-view .day-wrap .day .container .dayview-content > .evening .header .a {
   	position: relative;
   	float: right;
@@ -589,7 +600,7 @@
     position:absolute;
     width:1150px;
     height:159px;
-    margin-left: 50px;  
+    margin-left: 50px;
 }
 #items-morning-scroller{
     position:absolute;
@@ -601,7 +612,7 @@
     position:absolute;
     width:1150px;
     height:159px;
-    margin-left: 50px;  
+    margin-left: 50px;
 }
 #items-afternoon-scroller{
     position:absolute;
@@ -613,7 +624,7 @@
     position:absolute;
     width:1150px;
     height:150px;
-    margin-left: 50px;  
+    margin-left: 50px;
 }
 #items-evening-scroller{
     position:absolute;
@@ -704,13 +715,13 @@
 	width: 100%;
 	border-radius: 10px 10px 0px 0px;
 	background-color: #D1ECFF;
-	
+
 	background-image: url(../images/box-corner-day-left-bottom.png),
                       url(../images/box-corner-right-bottom.png),
                       url(../images/box-corner-day-left-middle-dark.png),
                       url(../images/box-corner-right-middle.png),
-                      url(../images/box-corner-middle-bottom.png);                      
-                      
+                      url(../images/box-corner-middle-bottom.png);
+
 	background-position: left bottom, right bottom, left top, right top, left bottom;
 	background-repeat: no-repeat, no-repeat, repeat-y, repeat-y, repeat-x;
 }
@@ -729,7 +740,7 @@
 #day-view .container .dayview-content > .afternoon {
   	border-bottom: 1px solid #b6b5b5;
 }
-	
+
 #day-view .container .dayview-content > .morning .header,
 #day-view .container .dayview-content > .afternoon .header,
 #day-view .container .dayview-content > .evening .header {
@@ -743,7 +754,7 @@
 	border-radius: 10px 10px 10px 10px;
 	vertical-align: middle;
  	background: none;
-	background-image: none;	
+	background-image: none;
 }
 #day-view .container .dayview-content > .morning .header .text,
 #day-view .container .dayview-content > .afternoon .header .text,
@@ -771,8 +782,8 @@
 	min-height: 150px;
 }
 
-#day-view .container .dayview-content > .morning .items .todo-item, 
-#day-view .container .dayview-content > .afternoon .items .todo-item, 
+#day-view .container .dayview-content > .morning .items .todo-item,
+#day-view .container .dayview-content > .afternoon .items .todo-item,
 #day-view .container .dayview-content > .evening .items .todo-item {
   	float: left;
   	position: relative;
@@ -781,7 +792,7 @@
 
 #day-view .day .container .items .todo-item {
 	position: absolute;
-	float: left;	
+	float: left;
 	height: 65px;
 	width: 1115px;
 	margin-top: 15px;
@@ -818,8 +829,8 @@
 	margin-left: 60px;
 }
 
-#day-view .container .dayview-content > .morning .items .todo-item, 
-#day-view .container .dayview-content > .afternoon .items .todo-item, 
+#day-view .container .dayview-content > .morning .items .todo-item,
+#day-view .container .dayview-content > .afternoon .items .todo-item,
 #day-view .container .dayview-content > .evening .items .todo-item {
   	float: left;
   	position: relative;
@@ -866,7 +877,7 @@
 
 #day-view .day .container .items .todo-item .text.grey {
 	color: #8C8C8C;
-} 
+}
 
 #day-view .day .container .items .todo-item.prio-1,
 #day-view .day .container .items .todo-item.prio-2,
@@ -878,7 +889,7 @@
 #day-view .container .dayview-content >.afternoon .items .todo-item.prio-1,
 #day-view .container .dayview-content >.evening .items .todo-item.prio-1,
 #day-view .container .dayview-content >.morning .items .todo-item.prio-2,
-#day-view .container .dayview-content >.afternoon .items .todo-item.prio-2, 
+#day-view .container .dayview-content >.afternoon .items .todo-item.prio-2,
 #day-view .container .dayview-content >.evening .items .todo-item.prio-2,
 #day-view .container .dayview-content >.morning .items .todo-item.prio-3,
 #day-view .container .dayview-content >.afternoon .items .todo-item.prio-3,
@@ -932,8 +943,8 @@
 }
 
 
-/* #day-view .day-wrap .day .container .dayview-content > .morning .header .a, 
-#day-view .day-wrap .day .container .dayview-content > .afternoon .header .a, 
+/* #day-view .day-wrap .day .container .dayview-content > .morning .header .a,
+#day-view .day-wrap .day .container .dayview-content > .afternoon .header .a,
 #day-view .day-wrap .day .container .dayview-content > .evening .header .a {
   	position: relative;
   	float: right;
@@ -1152,7 +1163,7 @@
 	letter-spacing: 0px;
 	margin-top: 6px;
 }
- 
+
  .ui-header .greeting .welcome {
  	position: absolute;
 	font-family: 'Lato Black';
@@ -1272,10 +1283,10 @@
 	font-size: 42px;
 	font-family: 'Lato Regular';
 	color: #666666;
-	text-align: center;	
+	text-align: center;
  	margin-left: 40px;
  	margin-top: 20px;
-} 
+}
 
 #move-to-date .container .dateselector {
 	height: 510px;
