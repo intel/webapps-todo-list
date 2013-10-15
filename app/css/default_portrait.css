@@ -153,19 +153,19 @@ body {
     position:absolute;
     width:720px;
     top: 200px;
-    overflow:auto;    
+    overflow:auto;
     height: 1080px;
     }
-   
+
 #week-view #weekouter .days{
-    z-index: 1;    
+    z-index: 1;
     position: absolute;
     margin-left: 20px;
     width: 100%;
 }
 
 #week-view #weekouter .days .scrollarea{
-    z-index: 1;    
+    z-index: 1;
     width: 100%;
 }
 #week-view #weekouter .days .scrollarea .day:first-child {
@@ -174,9 +174,10 @@ body {
 
 #week-view #weekouter .days .scrollarea .day {
     width: 640px; /* (720 - left & right margins) */
-    margin-left: 40px;
+    margin-left: 20px;
     margin-top: 15px;
     float: left;
+    clear: none;
     background-color: white;
     border-radius: 10px;
 }
@@ -185,7 +186,7 @@ body {
     height: 400px;
       overflow: hidden;
     background-color: #D1ECFF;
-    border-radius: 10px;     
+    border-radius: 10px;
 }
 .view_more {
     height: 80px;
@@ -228,7 +229,7 @@ body {
 
 #week-view #weekouter .days .scrollarea .day .container .items .todo-item {
     position: relative;
-    float: left;    
+    float: left;
     height: 65px;
     width: 1115px;
     margin-top: 15px;
@@ -341,7 +342,7 @@ body {
 
 #week-view #weekouter .days .scrollarea  .day .container .items .todo-item .text.grey {
     color: #8C8C8C;
-} 
+}
 
 #week-view #weekouter .days .scrollarea  .day .container .items .todo-item.prio-1,
 #week-view #weekouter .days .scrollarea  .day .container .items .todo-item.prio-2,
@@ -487,7 +488,7 @@ body {
 
 #day-view .day .container .items .todo-item .text.grey {
     color: #8C8C8C;
-} 
+}
 
 #day-view .day .container .items .todo-item.prio-1,
 #day-view .day .container .items .todo-item.prio-2,
@@ -712,7 +713,7 @@ body {
 }
 
 #edit-item fieldset.save {
-    margin-left: 50px;    
+    margin-left: 50px;
 }
 
 #edit-item fieldset.save .text,
@@ -1060,18 +1061,18 @@ body {
     /* overflow: hidden; */
 /*     overflow-y: scroll;
     overflow-x: hidden;
- */    
+ */
      height: 974px; /* 974px; */ /* (1040-66) */
     width: 100%;
     border-radius: 10px, 10px, 10px, 10px;
     background-color: #D1ECFF;
-    
+
     background-image: url(../images/box-corner-day-left-bottom.png),
              url(../images/box-corner-right-bottom.png),
              url(../images/box-corner-day-left-middle-dark.png),
              url(../images/box-corner-right-middle.png),
              url(../images/box-corner-middle-bottom.png);
-             
+
     background-position: left bottom, right bottom, left top, right top, left bottom;
     background-repeat: no-repeat, no-repeat, repeat-y, repeat-y, repeat-x;
 }
@@ -1092,7 +1093,7 @@ body {
     border-bottom: 1px solid #b6b5b5;
 }
 
-    
+
 #day-view .container .dayview-content >.morning .header,
 #day-view .container .dayview-content >.afternoon .header,
 #day-view .container .dayview-content >.evening .header {
@@ -1159,7 +1160,7 @@ body {
 #day-view .container .dayview-content >.afternoon .items .todo-item.prio-1,
 #day-view .container .dayview-content >.evening .items .todo-item.prio-1,
 #day-view .container .dayview-content >.morning .items .todo-item.prio-2,
-#day-view .container .dayview-content >.afternoon .items .todo-item.prio-2, 
+#day-view .container .dayview-content >.afternoon .items .todo-item.prio-2,
 #day-view .container .dayview-content >.evening .items .todo-item.prio-2,
 #day-view .container .dayview-content >.morning .items .todo-item.prio-3,
 #day-view .container .dayview-content >.afternoon .items .todo-item.prio-3,
@@ -1243,10 +1244,10 @@ body {
     font-size: 42px;
     font-family: 'Lato Regular';
     color: #666666;
-    text-align: center;    
+    text-align: center;
      margin-left: 40px;
      margin-top: 20px;
-} 
+}
 
 #move-to-date .container .dateselector {
     height: 510px;
