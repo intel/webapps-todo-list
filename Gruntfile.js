@@ -11,7 +11,7 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     packageInfo: grunt.file.readJSON('package.json'),
-    chromeInfo: grunt.file.readJSON('data/manifest.json'),
+    chromeInfo: grunt.file.readJSON('data/chrome-crx/manifest.json'),
 
     clean: ['build'],
 
@@ -20,9 +20,9 @@ module.exports = function (grunt) {
       // (default: '/tmp')
       tizenAppScriptDir: '/home/developer/',
 
-      // path to the config.xml file for the Tizen wgt file
+      // path to the config.xml file for the Tizen wgt file - post templating
       // (default: 'config.xml')
-      configFile: 'data/config.xml',
+      configFile: 'build/wgt/config.xml',
 
       // path to the sdb command (default: process.env.SDB or 'sdb')
       sdbCmd: 'sdb'
@@ -74,32 +74,85 @@ module.exports = function (grunt) {
           { expand: true, cwd: '.', src: ['app/css/**'], dest: 'build/' },
           { expand: true, cwd: '.', src: ['app/fonts/**'], dest: 'build/' },
           { expand: true, cwd: '.', src: ['app/audio/**'], dest: 'build/' },
-          { expand: true, cwd: '.', src: ['LICENSE'], dest: 'build/app/' },
           { expand: true, cwd: 'app/', src: ['README.txt'], dest: 'build/app/' },
+          { expand: true, cwd: '.', src: ['LICENSE'], dest: 'build/app/' },
           { expand: true, cwd: '.', src: ['app/_locales/**'], dest: 'build/' }
         ]
       },
+
       wgt: {
         files: [
           { expand: true, cwd: 'build/app/', src: ['**'], dest: 'build/wgt/' },
-          { expand: true, cwd: 'data/', src: ['config.xml'], dest: 'build/wgt/' },
           { expand: true, cwd: '.', src: ['icon_128.png'], dest: 'build/wgt/' }
         ]
       },
+
+      wgt_config: {
+        files: [
+          { expand: true, cwd: 'data/tizen-wgt/', src: ['config.xml'], dest: 'build/wgt/' }
+        ],
+        options:
+        {
+          processContent: function(content, srcpath)
+          {
+            return grunt.template.process(content);
+          }
+        }
+      },
+
       crx: {
         files: [
           { expand: true, cwd: 'build/app/', src: ['**'], dest: 'build/crx/' },
-          { expand: true, cwd: '.', src: ['manifest.json'], dest: 'build/crx/' },
           { expand: true, cwd: '.', src: ['icon*.png'], dest: 'build/crx/' }
         ]
       },
+
+      crx_manifest:
+      {
+        files: [
+          { expand: true, cwd: 'data/chrome-crx/', src: ['manifest.json'], dest: 'build/crx/' }
+        ],
+
+        options:
+        {
+          processContent: function(content, srcpath)
+          {
+            return grunt.template.process(content);
+          }
+        }
+
+      },
+
+      xpk: {
+        files: [
+          { expand: true, cwd: 'build/app/', src: ['**'], dest: 'build/xpk/' },
+          { expand: true, cwd: '.', src: ['icon*.png'], dest: 'build/xpk/' }
+        ]
+      },
+
+      xpk_manifest:
+      {
+        files: [
+          { expand: true, cwd: 'data/tizen-xpk/', src: ['manifest.json'], dest: 'build/xpk/' }
+        ],
+
+        options:
+        {
+          processContent: function(content, srcpath)
+          {
+            return grunt.template.process(content);
+          }
+        }
+
+      },
+
       sdk: {
         files: [
           { expand: true, cwd: 'build/app/', src: ['**'], dest: 'build/sdk/' },
           { expand: true, cwd: 'app/', src: ['js/**'], dest: 'build/sdk/' },
           { expand: true, cwd: 'app/', src: ['css/**'], dest: 'build/sdk/' },
           { expand: true, cwd: 'app/', src: ['*.html'], dest: 'build/sdk/' },
-          { expand: true, cwd: 'data/', src: ['config.xml'], dest: 'build/sdk/' },
+          { expand: true, cwd: 'data/tizen-wgt/', src: ['config.xml'], dest: 'build/sdk/' },
           { expand: true, cwd: '.', src: ['icon*.png'], dest: 'build/sdk/' }
         ]
       }
@@ -151,7 +204,7 @@ module.exports = function (grunt) {
         files: 'build/sdk/**',
         stripPrefix: 'build/sdk/',
         outDir: 'build',
-        suffix: '.wgt',
+        suffix: '.wgt'
       }
     },
 
@@ -173,7 +226,7 @@ module.exports = function (grunt) {
       install: {
         action: 'install',
         remoteFiles: {
-          pattern: '/home/developer/Todo*.wgt',
+          pattern: '/home/developer/<%= packageInfo.name %>*.wgt',
           filter: 'latest'
         }
       },
@@ -210,14 +263,15 @@ module.exports = function (grunt) {
     'copy:common'
   ]);
 
-  grunt.registerTask('crx', ['dist', 'copy:crx']);
-  grunt.registerTask('wgt', ['dist', 'copy:wgt', 'package:wgt']);
-
+  grunt.registerTask('crx', ['dist', 'copy:crx', 'copy:crx_manifest']);
+  grunt.registerTask('wgt', ['dist', 'copy:wgt', 'copy:wgt_config', 'package:wgt']);
+  grunt.registerTask('xpk', ['dist', 'copy:xpk', 'copy:xpk_manifest']);
   grunt.registerTask('sdk', [
     'clean',
     'imagemin:dist',
     'copy:common',
     'copy:sdk',
+    'copy:wgt_config',
     'package:sdk'
   ]);
 
@@ -226,6 +280,7 @@ module.exports = function (grunt) {
     'uglify:perf',
     'inline',
     'copy:wgt',
+    'copy:wgt_config',
     'package:wgt'
   ]);
 
