@@ -40,49 +40,28 @@ module.exports = function (grunt) {
     // minify JS
     uglify: {
       dist: {
-        files: {
-          'build/app/js/contextmenu.js': ['app/js/contextmenu.js'],
-          'build/app/js/date.js': ['app/js/date.js'],
-          'build/app/js/en_default.js': ['app/js/en_default.js'],
-          'build/app/js/helper.js': ['app/js/helper.js'],
-          'build/app/js/iscroll-lite.js': ['app/js/iscroll-lite.js'],
-          'build/app/js/jquery-1.7.1.min.js': ['app/js/jquery-1.7.1.min.js'],
-          'build/app/js/jquery.mobile-1.0.min.js': ['app/js/jquery.mobile-1.0.min.js'],
-          'build/app/js/jquery-ui-1.8.17.custom.min.js': ['app/js/jquery-ui-1.8.17.custom.min.js'],
-          'build/app/js/license.js': ['app/js/license.js'],
-          'build/app/js/movetodate.js': ['app/js/movetodate.js'],
-          'build/app/js/settings-backend.js': ['app/js/settings-backend.js'],
-          'build/app/js/todo-backend.js': ['app/js/todo-backend.js'],
-          'build/app/js/todo.js': ['app/js/todo.js'],
-          'build/app/js/web-ui-fw.js': ['app/js/web-ui-fw.js'],
-          'build/app/js/web-ui-fw-libs.js': ['app/js/web-ui-fw-libs.js']
-        }
+        files: [
+          { expand: true, cwd: '.', src: 'app/js/**/*.js', dest: 'build/' }
+        ]
       }
     },
 
     // minify CSS
     cssmin: {
       dist: {
-        files: {
-          'build/app/css/contextmenu.css': ['app/css/contextmenu.css'],
-          'build/app/css/default.css': ['app/css/default.css'],
-          'build/app/css/default_landscape.css': ['app/css/default_landscape.css'],
-          'build/app/css/default_portrait.css': ['app/css/default_portrait.css'],
-          'build/app/css/jquery.mobile-1.0.min.css': ['app/css/jquery.mobile-1.0.min.css'],
-          'build/app/css/movetodate.css': ['app/css/movetodate.css'],
-          'build/app/css/todo-jquery-mobile.css': ['app/css/todo-jquery-mobile.css'],
-          'build/app/css/web-ui-fw-theme.css': ['app/css/web-ui-fw-theme.css'],
-          'build/app/css/web-ui-fw-widget.css': ['app/css/web-ui-fw-widget.css']
-        }
+        files: [
+          { expand: true, cwd: '.', src: ['app/css/**/*.css'], dest: 'build/' }
+        ]
       }
     },
 
     copy: {
       common: {
         files: [
-          { expand: true, cwd: '.', src: ['app/css/**'], dest: 'build/' },
+          { expand: true, cwd: '.', src: ['app/lib/**'], dest: 'build/' },
           { expand: true, cwd: '.', src: ['app/fonts/**'], dest: 'build/' },
           { expand: true, cwd: '.', src: ['app/audio/**'], dest: 'build/' },
+          { expand: true, cwd: '.', src: ['app/data/**'], dest: 'build/' },
           { expand: true, cwd: '.', src: ['app/README.txt'], dest: 'build/' },
           { expand: true, cwd: '.', src: ['LICENSE'], dest: 'build/app/' },
           { expand: true, cwd: '.', src: ['app/_locales/**'], dest: 'build/' }
