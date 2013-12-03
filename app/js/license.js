@@ -17,29 +17,6 @@ function license_init(id, hpageid)
     var lscroll = document.getElementById(id+"scroll");
     var timer;
 
-    var request = new XMLHttpRequest();
-    request.open("GET", "README.txt", false);
-    request.onload = function(e) {
-        var text = this.responseText;
-        text = text.replace(/</g,"&lt;");
-        text = text.replace(/>/g,"&gt;");
-        var lines = text.split("\n");
-        lines[0] = "<br><br>"+lines[0];
-        for(var i in lines)
-        {
-            if(lines[i].match(/--------------------/))
-            {
-                lines[i] = "<br>";
-            }
-            else
-            {
-                lines[i] += "<br>";
-            }
-        }
-        lscroll.innerHTML = lines.join("\n");
-    }
-    request.send();
-
     lbtn.onclick = function() {
         /* initialize scroll rate */
         var dY = 2;
