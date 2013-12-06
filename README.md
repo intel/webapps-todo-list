@@ -11,7 +11,7 @@ It has been tested on the following browsers/platforms:
 
 This application is distributed under [Apache2.0](http://www.apache.org/licenses/LICENSE-2.0.html) license.
 
-See [HACKING.md](https://github.com/01org/webapps-annex/blob/maxw-readme/HACKING.md) for more details about how to use and extend this project.
+See [HACKING.md](https://github.com/01org/webapps-todo-list/blob/master/HACKING.md) for more details about how to use and extend this project.
 
 # AUTHORS
 * Author: Salvatore Iovene <salvatore.iovene@intel.com>
