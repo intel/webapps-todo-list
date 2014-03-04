@@ -1,6 +1,6 @@
 {
   "name": "TodoList",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Todo List.",
   "main": "app/index.html",
   "scripts": {
